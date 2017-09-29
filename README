@@ -1,0 +1,5 @@
+Installation instructions:
+1. Move speller.py into your $PATH
+2. Move autocorrect into your $PATH
+3. See 'hook.sh' as an example of hooking into your PROMPT_COMMAND. Paste into
+    .bashrc

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+local cmd=$1
+
+local suggest=$(speller.py "$cmd")
+if [ "$suggest" != "$cmd" ]; then
+  blue=$(tput setaf 4)
+  normal=$(tput sgr0)
+  printf "${blue}Did you mean \`$suggest\`? %%${normal} \a"
+  read answer
+  [ -n "$BASH_VERSION" ] && history -s $suggest
+  [ -n "$ZSH_VERSION" ] && print -S "$suggest"
+  eval $suggest
+fi
